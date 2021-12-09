@@ -14,7 +14,10 @@ services:
         networks:
             - sail
     php:
-        build: ./docker/php
+        build:
+            context: ./docker/php
+            args:
+                - XDEBUG_CLIENT_HOST=${XDEBUG_CLIENT_HOST}
         image: laravel-kudos
         restart: always
         depends_on:
