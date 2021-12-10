@@ -1,7 +1,9 @@
 <template>
-  <Tutorial/>
+  <div>Dashboard</div>
 </template>
 
 <script>
-export default {}
+export default {
+  middleware: ['auth', 'verified'],
+}
 </script>
