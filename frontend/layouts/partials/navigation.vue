@@ -1,6 +1,6 @@
 <template>
   <!-- Start Header -->
-  <header class="fixed-topx">
+  <header class="fixed-topx header">
     <nav v-if="$auth.loggedIn" class="navbar navbar-expand-lg navbar-dark align-items-center">
       <nuxt-link class="navbar-brand text-uppercase fw-500" :to="{ name: 'index'}">Kudos Board</nuxt-link>
       <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbar"
@@ -26,6 +26,11 @@
               </div>
             </div>
           </form>
+        </div>
+        <div class="upload-shot white-path font-14 fw-500 text-uppercase mr-auto" @click="openModal">
+          <a href="#" class="primary-bg-color text-white">
+            <i class="fas fa-plus"></i> Kudos
+          </a>
         </div>
       </div>
 
@@ -93,6 +98,9 @@ export default {
     logout() {
       this.$axios.post('/api/logout');
       this.$auth.logout()
+    },
+    openModal() {
+      this.$bvModal.show('modal');
     }
   }
 }

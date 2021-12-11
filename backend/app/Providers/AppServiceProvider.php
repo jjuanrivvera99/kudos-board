@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use App\Observers\UserObserver;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Auth\Notifications\VerifyEmail;
@@ -27,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        User::observe(UserObserver::class);
+
         ResetPassword::createUrlUsing(function($notifiable, $token) {
             return url(env('SPA_URL') . '/reset-password/' . $token . '?email=' . urlencode($notifiable->getEmailForPasswordReset()));
         });

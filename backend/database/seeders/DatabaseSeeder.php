@@ -13,13 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(1)->create(
-            [
-                'name' => 'Juan Rivera',
-                'email' => 'juan.rivera@jjuanrivvera.com',
-                'email_verified_at' => null,
-                'password' => bcrypt('password'),
-            ]
-        );
+        $this->call(BoardTypeSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(BoardSeeder::class);
     }
 }

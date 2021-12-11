@@ -1,6 +1,6 @@
 <template>
   <!-- Footer -->
-  <footer v-if="$auth.loggedIn" class="fixed-bottom">
+  <footer v-if="$auth.loggedIn" class="fixed-bottom footer">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-4">
